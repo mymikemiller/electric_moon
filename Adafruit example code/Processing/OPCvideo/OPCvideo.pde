@@ -5,7 +5,7 @@
 
 import processing.video.*;
 
-OPC    opc         = new OPC(this, "192.168.0.60", 7890);
+OPC    opc         = new OPC(this, "192.168.86.100", 7890);
 int    arrayWidth  = 16, // Width of LED matrix
        arrayHeight = 16, // Height of LED matrix
        scale       = 15, // Preview window pixel size

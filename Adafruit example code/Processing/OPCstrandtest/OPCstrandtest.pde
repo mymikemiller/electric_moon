@@ -1,8 +1,8 @@
 // Open Pixel Control "strandtest" example -- cycles R/G/B
 // chaser along LED strip.
 
-OPC opc       = new OPC(this, "192.168.0.60", 7890);
-int numPixels = 256; // Set this to actual strand length
+OPC opc       = new OPC(this, "192.168.86.100", 7890);
+int numPixels = 5; // Set this to actual strand length
 
 void setup() {
   opc.setPixel(numPixels-1, 0); // Alloc pixel array ASAP

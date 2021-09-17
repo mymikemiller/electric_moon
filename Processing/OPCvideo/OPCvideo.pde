@@ -5,11 +5,11 @@
 
 import processing.video.*;
 
-OPC    opc         = new OPC(this, "192.168.0.60", 7890);
-int    arrayWidth  = 16, // Width of LED matrix
-       arrayHeight = 16, // Height of LED matrix
+OPC    opc         = new OPC(this, "192.168.86.100", 7890);
+int    arrayWidth  = 50, // Width of LED matrix
+       arrayHeight = 50, // Height of LED matrix
        scale       = 15, // Preview window pixel size
-       numPixels   = arrayWidth * arrayHeight; // Total # of pixels
+       numPixels   = 60*5; // Total # of pixels
 PImage img         = new PImage(arrayWidth, arrayHeight, RGB);
 Movie  movie;
 
@@ -18,13 +18,16 @@ void setup() {
   opc.setPixel(numPixels-1, 0); // Alloc pixel array ASAP
   this.registerMethod("dispose", this);
   noSmooth();
-  frameRate(30);
+  frameRate(5);
 
   // Set up OPC pixel grid.  Arguments are: 1st pixel index,
   // row length, # of rows, center x, y, horizontal & vertical
   // pixel spacing, angle (radians), 'zigzag' flag (true/false):
-  opc.ledGrid(0, arrayWidth, arrayHeight, (width - 1) / 2,
-    (height - 1) / 2, scale, scale, 0, true);
+  //opc.ledGrid(0, arrayWidth, arrayHeight, (width - 1) / 2,
+  //  (height - 1) / 2, scaled, scale, 0, true);
+   
+  // ledring(int index, int count, float x, float y, float radius, float angle)
+  opc.ledRing(0, numPixels, (width-1)/2, (height-1)/2, (height-1)/2, 0);
 
   selectInput("Select a file to process:", "fileSelected");
 }

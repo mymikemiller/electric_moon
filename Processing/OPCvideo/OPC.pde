@@ -291,7 +291,18 @@ public class OPC implements Runnable
     loadPixels();
 
     for (int i = 0; i < numPixels; i++) {
+      println("pixels.length: " + pixels.length);
+      println("pixels 0: " + pixels[0]);
+      println("pixels 1: " + pixels[1]);
+      println("pixels 2: " + pixels[2]);
+      println("pixels 3: " + pixels[3]);
+      println("pixelLocations.length: " + pixelLocations.length);
+      println("pixelLocations 0: " + pixelLocations[0]);
+      println("pixelLocations 1: " + pixelLocations[1]);
+      println("pixelLocations 3: " + pixelLocations[3]);
+      println("accessing pixelLocations[" + i + "]");
       int pixelLocation = pixelLocations[i];
+      println("accessing pixels[" + pixelLocation + "]");
       int pixel = pixels[pixelLocation];
 
       packetData[ledAddress] = (byte)(pixel >> 16);
@@ -300,6 +311,7 @@ public class OPC implements Runnable
       ledAddress += 3;
 
       if (enableShowLocations) {
+        println("eh " + pixel);
         pixels[pixelLocation] = 0xFFFFFF ^ pixel;
       }
     }
